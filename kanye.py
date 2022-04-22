@@ -1,18 +1,29 @@
 #!/usr/bin/python3
+
 import requests
+import crayons
+
 kanye_url = requests.get('https://api.kanye.rest')
+
+print(crayons.yellow("\nThe Gospel According to Kanye West\n"))
+
 def main():
+    
     while True:    
-        print("\nThe Gospel According to Kanye West\n")
-        user_input1 = input("Would you like to hear a quote from the Gospel of Kanye West? y/n")
-        if user_input1 == "y":
-            print(kanye_url.json())
-        user_input2 = input("would you like to hear another? y/n")
-        if user_input1 == "y":
-            print(kanye_url.json())
+               
+        answer1 = input("Would you like to hear a quote from the Gospel of Kanye West? y/n ")
+        if answer1 == "y":
+            print(crayons.red(kanye_url.json()))
+            answer2 = input("\n Would you like to hear another? y/n ")
+            if answer2 == "y":
+                print(crayons.red((kanye_url.json())))
+            elif answer2 == "n":
+                print("\nGoodbye")
+                break
+        elif answer1 == "n":
+            print("\nGoodbye!")
             break
-        elif user_input2 == "n":
-            print("goodbye")   
-        elif user_input1 == "n":
-            print("Goodbye!")
+        else:
+            print("\n Please enter y or n ")
+    
 main()

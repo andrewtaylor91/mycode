@@ -18,4 +18,3 @@ def main():
 # Without it, main() would auto-execute when it was imported into the test suite.
 if __name__ == "__main__":
     main()
-
